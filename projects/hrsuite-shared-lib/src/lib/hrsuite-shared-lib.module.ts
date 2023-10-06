@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { HRSuiteSharedLibComponent } from './hrsuite-shared-lib.component';
+import { StoreModule } from '@ngrx/store';
+import { categoryReducer, moviesReducer } from '../public-api';
 
 
 
@@ -8,6 +10,10 @@ import { HRSuiteSharedLibComponent } from './hrsuite-shared-lib.component';
     HRSuiteSharedLibComponent
   ],
   imports: [
+    StoreModule.forRoot(
+      { movies: moviesReducer, categories: categoryReducer },
+      {}
+    )
   ],
   exports: [
     HRSuiteSharedLibComponent
